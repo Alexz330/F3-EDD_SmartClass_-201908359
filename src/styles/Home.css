@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,900&display=swap');
+
+.Home{
+    position: relative;    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh;
+    margin-top: -20px;
+    font-size: 100px;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+.Bienvenida{
+    place-self: center;
+}
+
+.Bienvenida img{
+    width: 700px;
+}
+
+.Bienvenida_imagen{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (max-width: 640px) {
+    .Bienvenida img {
+      width: 400px;
+    }
+    .Home{
+        grid-template-columns: 1fr ;   
+    }
+    .Bienvenida_imagen{
+        display: none;
+    }
+  }
+
+  @media (max-width: 810px) {
+    .Bienvenida img {
+      width: 400px;
+    }
+    .Home{
+        grid-template-columns: 1fr ;   
+    }
+    .Bienvenida_imagen{
+        display: none;
+    }
+  }
