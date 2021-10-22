@@ -1,0 +1,9 @@
+digraph grafica{
+rankdir=TB;
+node [shape = record, style=filled, fillcolor=seashell2];
+nodo201822186 [ label ="<C0>|201822186\nEloisa Rincón\n Ingenieria Civil|<C1>"];
+nodo201501786 [ label ="<C0>|201501786\nJuan Curiel\n Ingenieria Industrial|<C1>"];
+nodo201822186:C0->nodo201501786
+nodo201901425 [ label ="<C0>|201901425\nEmilia Miramontes\n Ingenieria en Ciencias y Sistemas|<C1>"];
+nodo201822186:C1->nodo201901425
+}
