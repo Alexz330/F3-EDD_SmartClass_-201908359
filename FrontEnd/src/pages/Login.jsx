@@ -1,11 +1,19 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import AppContext from '../context/AppContext';
+//estilos
 import '../styles/Login.css';
+//logo
 import logo from '../assets/logo.png'
 
 const Login = () => {
 	const form = useRef(null);
+	//contexto del estado 
+	const { addAccesUser, state,addInformatioUser } = useContext(AppContext)
+	const history = useHistory();
+
+	const [uservalidated, setUserValidated] = useState(true)
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -14,25 +22,30 @@ const Login = () => {
 			carnet: formData.get('carnet'),
 			password: formData.get('password')
 		}
-
 		const res = await fetch(`http://localhost:8080/estudiante`, {
 			method: "POST",
 			headers: {
-			  "Content-Type": "application/json",
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
 				"carnet": data.carnet,
-				"password":data.password
+				"password": data.password
 			}),
-		  });
-
+		});
 		const datasUser = await res.json();
+		const { userValided } = datasUser;
 
-		const  {logueado} = datasUser;
-
-		if(logueado === true){
+		if (userValided === true) {
+			addInformatioUser(datasUser)
+			setUserValidated(true)
 			
-		} 
+			addAccesUser();
+			history.push('/user')
+		} else {
+			console.log("usuario no valido")
+			setUserValidated(false)
+			console.log(uservalidated)
+		}
 	}
 
 	return (
@@ -50,14 +63,18 @@ const Login = () => {
 						className="primary-button login-button">
 						Log in
 					</button>
-					{/* <a href="/">Inicio</a> */}
-					
+
+
 				</form>
 				<button
 					className="secondary-button signup-button"
 				>
 					Sing up
 				</button>
+
+				{
+					uservalidated ? "" : "Usuario no valido"
+				}
 			</div>
 		</div >
 	);

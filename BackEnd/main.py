@@ -151,10 +151,10 @@ def Login():
                 "nombre": search_student.name,
                 "carrera": search_student.career,
                 "correo": search_student.email,
-                "password": search_student.password,
+               
                 "credist": search_student.credits,
                 "edad": search_student.age,
-                "logueado":True
+                "userValided":True
                 }
             )
         elif(search_student.password != password):

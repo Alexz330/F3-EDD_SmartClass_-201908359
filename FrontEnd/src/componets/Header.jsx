@@ -1,10 +1,16 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import AppContext from '../context/AppContext'
 import { Link } from 'react-router-dom'
 import '../styles/Header.css'
 import Logo from '../assets/logo-horizontal .png'
 
 
 const Header = () => {
+    const {state,logOutUser} = useContext(AppContext)
+
+    const onClick = ()=>{
+        logOutUser();
+    }
     return (
         <div className='header'>
             <Link to="/"><img src={Logo} alt="no cargada" className="logo-header" /></Link>
@@ -19,7 +25,12 @@ const Header = () => {
                 </ul>
             </nav>
             <div className="nav__buttons">
-                <Link to="/login" className="btn_nav"><button className="button-nav">Log in</button></Link>
+                {
+                    !state.logueado?<Link to="/login" className="btn_nav"><button className="button-nav">Log in</button></Link>
+                    :<Link to="/login" className="btn_nav"><button className="button-nav" onClick={onClick}>Log out<output></output></button></Link>
+                    
+                }
+                
                 <Link to="/sing-up" className="btn_nav"><button className="button-nav">Sing Up</button></Link>
               
               
