@@ -61,6 +61,10 @@ class HashTable:
                 self.table.append(newNode)
             self.tableLen = self.getNextNumberPrime(self.tableLen)
 
+            tableRehash =  self.rehash(self.table)
+
+            self.table = tableRehash
+
             if self.table[position].carnet ==  "":
                 newNode = nodoHash(key)
                 self.table[position] = newNode
@@ -96,7 +100,21 @@ class HashTable:
         aux =  posicion + intento **2
         return aux % self.tableLen
     
-    def rehash(self,table,tableReHash):
+    def rehash(self,tableReHash):
+        #inicializamos la tabla para el rehash
+        arr = []
+        for _n in range(self.tableLen):
+            newNodo = nodoHash("")
+            arr.append(newNodo)
+        
+        for i in range(self.tableLen):
+           
+            if tableReHash[i].carnet != "":
+                position  = self.functionHash(tableReHash[i].carnet)
+                arr[position] = tableReHash[i]
+
+        return arr
+
         
     def get(self,key):
         pass
@@ -152,13 +170,9 @@ apuntesitos.add(1,a2)
 
 
 
-
-
-
-
 apuntesitos.getTable()
 
 
 
-print(apuntesitos.getPorcentageUse())
+
 
