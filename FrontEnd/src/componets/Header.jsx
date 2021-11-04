@@ -18,7 +18,7 @@ const Header = () => {
             <nav>
                 <ul className="nav__links">
 
-                    <li><Link href="/">Apuntes </Link></li>
+                    <li><Link to="/apuntes">Apuntes </Link></li>
                     <li><Link href="/">Tareas</Link></li>
                     <li><Link href="/">Red de Cursos</Link></li>
 

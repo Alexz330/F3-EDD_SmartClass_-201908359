@@ -17,7 +17,7 @@ CORS(app)
 
 
 
-f = open("Backend/Estudiantes.txt", "r", encoding="utf-8")
+f = open("Estudiantes.txt", "r", encoding="utf-8")
 mensaje = f.read()
 f.close()
 parser.parse(mensaje)
@@ -221,20 +221,19 @@ def elimnarEstudiante():
     arbol.eliminar(no_carnet)
     return jsonify({"estudiantes": dictStudent()})
 
-@app.route('/estudiante', methods=['POST'])
+@app.route('/agregarEstudiante', methods=['POST'])
 def postEstudiante():
 
     no_carnet = request.json['carnet']
-    DPI = request.json['DPI']
+    DPI = request.json['dpi']
     nombre = request.json["nombre"]
     carrera = request.json["carrera"]
     correo = request.json["correo"]
     password = request.json["password"]
-    credits = request.json["creditos"]
     edad = request.json["edad"]
 
-    estudiante = Student(no_carnet, DPI, nombre, carrera,
-                         correo, password, credits, edad, None)
+    estudiante = Student(int(no_carnet), DPI, nombre, carrera,
+                         correo, password, None, edad, None)
     arbol.add(estudiante)
 
     return f"se agrego el usuario {nombre}"

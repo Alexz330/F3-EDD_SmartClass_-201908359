@@ -7,7 +7,7 @@ const User = ({ nombre }) => {
   const { state } = useContext(AppContext)
   const {logueado,userInformation} = state
  
-  console.log(userInformation)
+  
   if(logueado){
     return(
       <>

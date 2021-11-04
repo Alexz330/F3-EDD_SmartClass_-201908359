@@ -1,10 +1,10 @@
 ¿Elements?
     ¿element type="user"?
-        ¿item Carnet = "201901425" $?
+        ¿item Carnet = "1" $?
         ¿item DPI = "3502451230508" $?
         ¿item Nombre = "Emilia Miramontes" $?
         ¿item Carrera = "Ingenieria en Ciencias y Sistemas" $?
-        ¿item Password = "roxodiciqi" $?
+        ¿item Password = "1" $?
         ¿item Creditos = 205 $?
         ¿item Edad = 21 $?
         ¿item Correo = "abrahamz@outlook.com" $?

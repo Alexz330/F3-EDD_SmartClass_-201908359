@@ -7,6 +7,7 @@ import CreateAcount from '../pages/CreateAcount';
 import User from '../pages/User';
 import AppContext from '../context/AppContext';
 import useInialState from '../hooks/useInitialState';
+import Apuntes from '../pages/Apuntes';
 // estilos globales 
 import '../styles/global.css'
 
@@ -22,6 +23,7 @@ const App = () => {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/sing-up" component={CreateAcount} />
 						<Route exact path="/user" component={User} />
+						<Route exact path="/apuntes" component={Apuntes} />
 					</Switch>
 				</Layout>
 			</BrowserRouter>

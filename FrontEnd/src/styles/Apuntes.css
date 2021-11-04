@@ -1,0 +1,68 @@
+.Apuntes {
+    display: flex;
+    justify-content: center;
+    position: relative;
+	
+}
+
+.Apuntes_container{
+    
+    width: 80%;
+    height:700px;
+    background-color: papayawhip;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.Apuntes_info{
+    height: 130px;
+    background-color: whitesmoke;
+    
+       
+}
+
+.Apuntes_nombre__usuario{
+    margin-left: 10px;
+}
+
+.Apuntes_nombre{
+    display: flex;
+    flex-direction: row;
+}
+
+.Icon_person{
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.Apuntes_text{
+    display: flex;
+    justify-content: center;
+}
+
+textarea{
+	border: none;
+	outline: none;
+	resize: none;
+}
+
+.text_area{
+	margin-top: 5px;
+	width: auto;
+	height: auto;
+	border: 1px solid #229CFF;
+	border-radius: 2px;
+	font-size: 16px;
+}
+.text_area:hover{
+	-moz-box-shadow: 0px 0px 10px 1px  #EBF6FF;
+	-webkit-box-shadow: 0px 0px 10px 1px  #EBF6FF;
+	box-shadow: 0px 0px 10px 1px  #EBF6FF;
+	border: 1px solid #229CFF;
+}
+
+.Apuntes__boton_guadar{
+    display: flex;
+    justify-content: flex-end;
+}
