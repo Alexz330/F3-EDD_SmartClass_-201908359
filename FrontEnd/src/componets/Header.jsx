@@ -6,8 +6,8 @@ import Logo from '../assets/logo-horizontal .png'
 
 
 const Header = () => {
-    const {state,logOutUser} = useContext(AppContext)
-
+    const {state,logOutUser,verifcationAdmin} = useContext(AppContext)
+    
     const onClick = ()=>{
         logOutUser();
     }
@@ -18,9 +18,12 @@ const Header = () => {
             <nav>
                 <ul className="nav__links">
 
-                    <li><Link to="/apuntes">Apuntes </Link></li>
+                    <li><Link to="/apuntes-agregar">Apuntes </Link></li>
                     <li><Link href="/">Tareas</Link></li>
                     <li><Link href="/">Red de Cursos</Link></li>
+                    {
+                        verifcationAdmin()?<li><Link href="/">Reportes</Link></li>:""
+                    }
 
                 </ul>
             </nav>
@@ -30,8 +33,13 @@ const Header = () => {
                     :<Link to="/login" className="btn_nav"><button className="button-nav" onClick={onClick}>Log out<output></output></button></Link>
                     
                 }
+                      {
+                    !state.logueado?<Link to="/sing-up" className="btn_nav"><button className="button-nav">Sing Up</button></Link>
+                    :""
+                    
+                }
                 
-                <Link to="/sing-up" className="btn_nav"><button className="button-nav">Sing Up</button></Link>
+                
               
               
             </div> 

@@ -1,6 +1,6 @@
 digraph ArbolB{
 
-rankdir=TB;
+    rankdir=TB;
 node[color="red",style="diagonals",fillcolor=yellow, shape=record];
 
 Nodo281[label="<f0> |<f1>281\nFISICA 2|<f2> |<f3>774\nSistemas de Bases de Datos1|<f4> |<f5>2036\nPráctica Intermedia|<f6>  ",group=0];

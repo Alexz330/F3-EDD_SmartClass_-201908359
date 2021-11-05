@@ -27,16 +27,53 @@ const useInialState = () =>{
 
     const addInformatioUser = (information) =>{  
             console.log(information)
-           state.userInformation.push(information)
-            
-         
+           state.userInformation.push(information) 
 
     }
+
+    const getCarnet= ()=>{
+        if (state.userInformation[0] === undefined){
+            console.error("usuario no encontrado")
+        }else{
+            return state.userInformation[0]["carnet"]
+        }
+            
+    }
+
+    const verifcationAdmin=()=>{
+        if (state.userInformation[0] === undefined){
+            console.error("usuario no encontrado")
+        }else{
+            if (state.userInformation[0]["admin"] === true){
+                return true
+            }else{
+                return false
+            }
+            
+        }
+    }
+
+
+    const getNombre= ()=>{
+        if (state.userInformation[0] === undefined){
+            console.error("usuario no encontrado")
+        }else{
+            return state.userInformation[0]["nombre"]
+        }
+            
+    }
+
+
+       
+    
     return {
         state,
         addAccesUser,
         logOutUser,
-        addInformatioUser
+        addInformatioUser,
+        getCarnet,
+        getNombre,
+        verifcationAdmin
     }
 }
 

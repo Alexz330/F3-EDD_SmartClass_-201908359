@@ -108,16 +108,38 @@ class HashTable:
             arr.append(newNodo)
         
         for i in range(self.tableLen):
-           
             if tableReHash[i].carnet != "":
                 position  = self.functionHash(tableReHash[i].carnet)
-                arr[position] = tableReHash[i]
+                if arr[position] != None:
+                    intento = 0 
+                    
+                    while True: 
+                        
+                        if tableReHash[position].carnet == "":
+                            arr[position] = tableReHash[i]
+                            break
+                        
+                        # if (position < self.tableLen -1):    
+                            # position = self.ColisionCuadratica(int(tableReHash[i].carnet,intento)
+                            # intento +=1
+                        if position < self.tableLen-1:
+                            position = self.ColisionCuadratica(int(tableReHash[i].carnet),intento)
+                            intento +=1
+                        else:
+                            position = 0 
+                            intento = 0
+
+                else:   
+                    position  = self.functionHash(tableReHash[i].carnet)    
+                    arr[position] = tableReHash[i]
 
         return arr
 
         
     def get(self,key):
-        pass
+        index =  self.functionHash(key)
+    
+        return self.table[index].__dict__
     
 
     def delete(self):
@@ -155,6 +177,51 @@ class HashTable:
                 return False
         return True
 
+    def getCodigoInterno(self,):         
+        etiqueta= "subgraph cluster_0"+"{\n"+"style=filled;\n"+"color=lightgrey;\n"+"node [style=filled,color=white];\n"
+
+        for i in range(self.tableLen):
+                if self.table[i].carnet == "":
+                    nodo = f"nodoMateria{str(i)} "
+                elif self.table[i].carnet != "":
+                    nodo = f"nodoMateria{str(self.table[i].carnet)} "
+                etiqueta += nodo+"[label =\""+str(self.table[i].carnet)+"\"];\n" 
+         
+        etiqueta2 = ""
+        for n in range(self.tableLen):
+            nodo2=""
+            contador = 0
+            if self.table[n].carnet != "":
+                nodo2 = f"nodoMateria{str(self.table[n].carnet)} "
+                for m in self.table[n].apunte:
+                   
+                    nodo_Apunte = f"nodoApunte{str(contador)}{self.table[n].carnet}" 
+                    etiqueta2 += f'{nodo_Apunte}[label ="{str(self.table[n].carnet)} {str(contador+1)}-apunte"]\n '
+
+                    etiqueta+= f'{nodo2}-> {nodo_Apunte} '
+                   
+                    contador+=1
+                    nodo2=""
+        etiqueta += etiqueta2
+        etiqueta+= f'\nlabel ="apuntes"'+"\n}"
+
+        
+        return etiqueta 
+
+
+    def  getCodigoGraphviz(self):
+        contenido = self.getCodigoInterno()
+        title =  f' labelloc="t";\nlabel="Tabla Hash";'
+        return "digraph grafica{\n" +"rankdir=LR;\n" +"node [shape = record, style=filled, fillcolor=seashell2];\n"+title+"\n" +contenido+"}\n";
+
+    def graficar(self,):
+        import os 
+        f = open('apuntes.dot', 'w', encoding='utf-8')
+        f.write(self.getCodigoGraphviz())
+        f.close()
+        os.system('dot -Tpng apuntes.dot -o apuntes.png')
+
+
 
 
 apuntesitos =  HashTable()
@@ -162,15 +229,22 @@ apuntesitos =  HashTable()
 a1 = apunte("tarea 1", "hacer tarea de matematicas")
 a2 = apunte("tarea 2", "hacer tarea de estructuras")
 
-apuntesitos.add(13,a1)
-apuntesitos.add(13,a1)
-apuntesitos.add(2,a2)
-apuntesitos.add(3,a2)
-apuntesitos.add(1,a2)
+apuntesitos.add(201908359,a2)
+apuntesitos.add(201908359,a2)
+apuntesitos.add(201908359,a2)
+apuntesitos.add(201908359,a2)
+apuntesitos.add(201909321,a1)
+apuntesitos.add(201909321,a2)
+apuntesitos.add(201909321,a2)
+apuntesitos.add(201909321,a2)
+apuntesitos.add(201905435,a2)
+apuntesitos.add(201905346,a2)
+apuntesitos.add(201906546,a2)
+apuntesitos.add(201903453,a1)
+apuntesitos.add(201905345,a1)
 
 
-
-apuntesitos.getTable()
+apuntesitos.graficar()
 
 
 

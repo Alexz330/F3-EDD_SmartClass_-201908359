@@ -7,6 +7,8 @@ from Estructuras.Lista_años import Lista_años, Años
 from Estructuras.Lista_Meses import Lista_Meses, Meses
 from Estructuras.Lista_semestres import Lista_Semestre, Semestre
 from Estructuras.ArbolB.ArbolB import arbolB
+from Estructuras.HashTable.HashTable import HashTable, apunte
+
 from Student import Student
 from flask import Flask, json, request, jsonify
 from flask_cors import CORS
@@ -24,6 +26,7 @@ parser.parse(mensaje)
 
 arbol = Tree_Avl()
 arbolBCusrosPensum = arbolB()      
+TablaApuntes = HashTable()
 
 for node in user_list.iter():
     arbol.add(Student(
@@ -58,6 +61,26 @@ def dictStudent():
 
         dictSudent.append(aux)
     return dictSudent
+
+#endPoints para apuntes
+@app.route("/apuntesAgregar", methods=['POST'])
+def agregarApunte():
+    title = request.json['title']
+    content = request.json['content']
+    carnet =  request.json['carnet']
+    apuntesito = apunte(title,content)
+
+    TablaApuntes.add(int(carnet),apuntesito)
+    print(TablaApuntes.get(int(carnet)))
+    return f"se agrego aputene a la tablaHash"
+@app.route("/ObtenerApuntes", methods=['GET',"POST"])
+def obtenerApuntes():
+    carnet =  request.json['carnet']
+    print(carnet)
+    apunesUsuario = TablaApuntes.get(int(carnet))
+
+    return jsonify(apunesUsuario)
+
 
 
 @app.route("/carga", methods=['POST'])
@@ -137,7 +160,14 @@ def reporte():
 def Login():
     carnet =  request.json['carnet']
     password =  request.json['password'] 
-
+    if carnet == "admin" and password == "admin":
+             return jsonify({
+                "carnet": carnet,
+                "nombre": "admin",
+                "userValided":True,
+                "admin":True
+                }
+     )
     print(carnet,password)
 
     search_student = arbol.search(int(carnet), arbol.root)
@@ -151,7 +181,7 @@ def Login():
                 "nombre": search_student.name,
                 "carrera": search_student.career,
                 "correo": search_student.email,
-               
+                 "admin":False,
                 "credist": search_student.credits,
                 "edad": search_student.age,
                 "userValided":True
@@ -162,6 +192,8 @@ def Login():
                 "mesagge": "Contraseña o usuario incorrecto",
                 "logueado":False
             })
+       
+
 
     elif( search_student is None):
         print("NO se encontro usuario")
@@ -170,9 +202,6 @@ def Login():
              "logueado":False
         })
         
-
-
-
 
 @app.route('/estudiante', methods=['PUT'])
 def modificar_estudiante():
