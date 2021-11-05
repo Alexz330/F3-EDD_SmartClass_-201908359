@@ -9,6 +9,7 @@ import AppContext from '../context/AppContext';
 import useInialState from '../hooks/useInitialState';
 import Apuntes from '../pages/Apuntes';
 import ListaApuntes from '../pages/ListaApuntes';
+import Reportes from '../pages/Reportes';
 // estilos globales 
 import '../styles/global.css'
 
@@ -26,6 +27,8 @@ const App = () => {
 						<Route exact path="/user" component={User} />
 						<Route exact path="/apuntes-agregar" component={Apuntes} />
 						<Route exact path="/apuntes-ver" component={ListaApuntes}/>
+						<Route exact path="/reportes" component={Reportes}/>
+					
 					</Switch>
 				</Layout>
 			</BrowserRouter>

@@ -69,10 +69,12 @@ def agregarApunte():
     content = request.json['content']
     carnet =  request.json['carnet']
     apuntesito = apunte(title,content)
-
+    print(title)
     TablaApuntes.add(int(carnet),apuntesito)
-    print(TablaApuntes.get(int(carnet)))
+    TablaApuntes.graficar()
     return f"se agrego aputene a la tablaHash"
+
+
 @app.route("/ObtenerApuntes", methods=['GET',"POST"])
 def obtenerApuntes():
     carnet =  request.json['carnet']
@@ -81,6 +83,12 @@ def obtenerApuntes():
 
     return jsonify(apunesUsuario)
 
+@app.route("/reporteTabla",methods=["GET"])
+def reporteTabla():
+    TablaApuntes.graficar()
+    return jsonify({
+        "ruta":'apuntes.png'
+    })
 
 
 @app.route("/carga", methods=['POST'])
@@ -125,7 +133,6 @@ def cargar():
         
     return "mi loco ya se cargaron los estudiantes"
         
-
 
 @app.route('/reporte', methods=['GET'])
 def reporte():

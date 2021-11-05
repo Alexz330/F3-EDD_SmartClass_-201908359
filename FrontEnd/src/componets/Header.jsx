@@ -22,7 +22,7 @@ const Header = () => {
                     <li><Link href="/">Tareas</Link></li>
                     <li><Link href="/">Red de Cursos</Link></li>
                     {
-                        verifcationAdmin()?<li><Link href="/">Reportes</Link></li>:""
+                        verifcationAdmin()?<li><Link to="/reportes">Reportes</Link></li>:""
                     }
 
                 </ul>
