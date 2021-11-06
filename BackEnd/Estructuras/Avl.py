@@ -228,7 +228,7 @@ class Tree_Avl:
         f = open('reportes/reporteAvl.dot', 'w', encoding='utf-8')
         f.write(self.root.getCodigoGraphviz())
         f.close()
-        os.system('dot -Tpng reportes/reporteAvl.dot -o reportes/reporteAvl.png')
+        os.system('dot -Tsvg reportes/reporteAvl.dot -o reportes/reporteAvl.svg')
 
 
 

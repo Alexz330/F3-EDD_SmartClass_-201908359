@@ -1,0 +1,14 @@
+.Reportes{
+    display: grid;
+	place-items: center; 
+}
+
+.Reportes_container{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height:700px;
+    background-color: papayawhip;
+    border-radius: 10px;
+    
+}

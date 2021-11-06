@@ -8,6 +8,8 @@ class Student:
         self.email = email
         self.password = password
         self.credits = credits
+        self.cursos = []
         self.age = age
         self.age_list = age_list
+        
         

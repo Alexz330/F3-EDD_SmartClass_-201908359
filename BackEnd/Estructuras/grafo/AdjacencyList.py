@@ -1,7 +1,8 @@
 
-from List import List
-from Node import  NodeGraph
-from Curso import Curso
+from Estructuras.grafo.List import List
+from  Estructuras.grafo.Node import  NodeGraph
+from  Estructuras.grafo.Curso import Curso
+import json
 
 
 class AdjacencyList:
@@ -47,7 +48,7 @@ class AdjacencyList:
     def link_graph(self,value_1, value_2):
         aux = self.First
         while aux is not None:
-            if aux.curso.codigo == value_1.codigo:
+            if aux.curso.codigo == value_1:
                 aux.list.insert_value(value_2)
                 break
             aux = aux.Next
@@ -77,7 +78,7 @@ class AdjacencyList:
           
 
 
-    def getCodigoInterno(self,cursoBuscado):         
+    def getCodigoInterno(self):         
         etiqueta= ""
         aux =  self.First
          
@@ -85,26 +86,27 @@ class AdjacencyList:
             
             if not aux.list.is_empty():
                 aux2 =  aux.list.First
-                nodo = f"nodoMateria{str(aux.curso.nombre)} "
-                etiqueta += nodo+"[label =\"<C0>|"+str(aux.curso.nombre)+"\n"+ str(aux.curso.codigo)+"|<C1>\"];\n" 
+                nodo = f"nodoMateria{str(aux.curso.codigo)} "
+                etiqueta += nodo+"[label =\"<C0>|"+str(aux.curso.nombre)+"\n"+" "+ str(aux.curso.codigo)+"|<C1>\"];\n" 
 
             
                 
                 while aux2 is not None:
-                                  
-                    nodo2 = f'nodoMateria{str(aux2.curso.nombre)}'
-                    etiqueta += f'{nodo} -> {nodo2}\n'
-                    nodo2 = ""
-                
-                    aux2 =  aux2.Next   
+                    if aux2.curso != "":
+                        nodo2 = f'nodoMateria{str(aux2.curso)}'
+                        etiqueta += f'{nodo} -> {nodo2}\n'
+                        nodo2 = ""
+  
+                    aux2 =  aux2.Next
+                       
 
             if aux.list.is_empty():
                 aux2 =  aux.list.First
-                nodo = f"nodoMateria{str(aux.curso.nombre)} "
+                nodo = f"nodoMateria{str(aux.curso.codigo)} "
                 etiqueta += nodo+"[label =\"<C0>|"+str(aux.curso.nombre)+"\n"+ str(aux.curso.codigo)+"|<C1>\"];\n" 
                 while aux2 is not None:
                        
-                    nodo2 = f'nodoMateria{str(aux2.number)}'
+                    nodo2 = f'nodoMateria{str(aux2.curso)}'
                     etiqueta += f'{nodo} -> {nodo2}\n'
                     nodo2 = ""
                     aux2 =  aux2.Next
@@ -115,72 +117,78 @@ class AdjacencyList:
         return etiqueta 
 
 
-    def  getCodigoGraphviz(self,cursoBuscado):
-        contenido = self.getCodigoInterno(cursoBuscado)
+    def  getCodigoGraphviz(self):
+        contenido = self.getCodigoInterno()
         title =  f' labelloc="t";\nlabel="Sebas HAY FEEE";'
         return "digraph grafica{\n" +"rankdir=LR;\n" +"node [shape = record, style=filled, fillcolor=seashell2];\n"+title+"\n" +contenido+"}\n";
 
-    def graficar(self,cursoBuscado):
+    def graficar(self,):
         import os 
         f = open('GrafoCursos.dot', 'w', encoding='utf-8')
-        f.write(self.getCodigoGraphviz(cursoBuscado))
+        f.write(self.getCodigoGraphviz())
         f.close()
         os.system('dot -Tpng GrafoCursos.dot -o reporteGraph.png')
 
 
+# grafito = AdjacencyList()
 
+
+
+
+
+# grafito.graficar()
     
-mate1 = Curso("mate1",101)
-mate2 = Curso("mate2",103)
-mate_inter1 = Curso("mateIntermedia1",107)
-logica = Curso("LogicaDeSistemas",795)
-mate_computo1 = Curso("MatematicaComputo1",690)
-ipc1 = Curso("IPC1",770)
-ipc2= Curso("IPC2",771)
-lenguajes = Curso("LENGUAJES",796)
-mate_computo2 = Curso("MateComputo2",962)
-estructura = Curso("EstucturaDeDatos",772)
-
-grafito = AdjacencyList()
-
-grafito.insert_node(mate1)
-grafito.insert_node(mate2)
-grafito.insert_node(mate_inter1)
-grafito.insert_node(logica)
-grafito.insert_node(mate_computo1)
-grafito.insert_node(ipc1)
-grafito.insert_node(ipc2)
-grafito.insert_node(lenguajes)
-grafito.insert_node(mate_computo2)
-grafito.insert_node(estructura)
-
-grafito.link_graph(mate1,mate2)
-
-grafito.link_graph(mate2,mate_inter1)
-grafito.link_graph(mate2,ipc1)
-grafito.link_graph(mate2,logica)
-grafito.link_graph(mate2,mate_computo1)
-
-grafito.link_graph(mate_inter1,ipc2)
-
-grafito.link_graph(ipc1,ipc2)
-grafito.link_graph(ipc1,lenguajes)
-grafito.link_graph(ipc1,mate_computo2)
-
-grafito.link_graph(mate_computo1,ipc2)
-grafito.link_graph(mate_computo1,lenguajes)
-grafito.link_graph(mate_computo1,mate_computo2)
-
-grafito.link_graph(logica,ipc2)
-grafito.link_graph(logica,lenguajes)
-grafito.link_graph(logica,mate_computo2)
-
-grafito.link_graph(ipc2,estructura)
-grafito.link_graph(lenguajes,estructura)
-grafito.link_graph(mate_computo2,estructura)
+# mate1 = Curso("mate1",101)
+# mate2 = Curso("mate2",103)
+# mate_inter1 = Curso("mateIntermedia1",107)
+# logica = Curso("LogicaDeSistemas",795)
+# mate_computo1 = Curso("MatematicaComputo1",690)
+# ipc1 = Curso("IPC1",770)
+# ipc2= Curso("IPC2",771)
+# lenguajes = Curso("LENGUAJES",796)
+# mate_computo2 = Curso("MateComputo2",962)
+# estructura = Curso("EstucturaDeDatos",772)
 
 
 
-grafito.get_list()
-grafito.graficar(962)
+# grafito.insert_node(mate1)
+# grafito.insert_node(mate2)
+# grafito.insert_node(mate_inter1)
+# grafito.insert_node(logica)
+# grafito.insert_node(mate_computo1)
+# grafito.insert_node(ipc1)
+# grafito.insert_node(ipc2)
+# grafito.insert_node(lenguajes)
+# grafito.insert_node(mate_computo2)
+# grafito.insert_node(estructura)
+
+# grafito.link_graph(mate1,mate2)
+
+# grafito.link_graph(mate2,mate_inter1)
+# grafito.link_graph(mate2,ipc1)
+# grafito.link_graph(mate2,logica)
+# grafito.link_graph(mate2,mate_computo1)
+
+# grafito.link_graph(mate_inter1,ipc2)
+
+# grafito.link_graph(ipc1,ipc2)
+# grafito.link_graph(ipc1,lenguajes)
+# grafito.link_graph(ipc1,mate_computo2)
+
+# grafito.link_graph(mate_computo1,ipc2)
+# grafito.link_graph(mate_computo1,lenguajes)
+# grafito.link_graph(mate_computo1,mate_computo2)
+
+# grafito.link_graph(logica,ipc2)
+# grafito.link_graph(logica,lenguajes)
+# grafito.link_graph(logica,mate_computo2)
+
+# grafito.link_graph(ipc2,estructura)
+# grafito.link_graph(lenguajes,estructura)
+# grafito.link_graph(mate_computo2,estructura)
+
+
+
+# grafito.get_list()
+# grafito.graficar(962)
 

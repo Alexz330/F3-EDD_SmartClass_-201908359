@@ -62,9 +62,6 @@ const useInialState = () =>{
         }
             
     }
-
-
-       
     
     return {
         state,

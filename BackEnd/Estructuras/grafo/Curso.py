@@ -1,5 +1,6 @@
 class Curso:
-    def __init__(self,nombre, codigo:int) -> None:
+    def __init__(self,nombre, codigo) -> None:
         self.nombre = nombre
-        self.codigo:int  = codigo
+        self.codigo  = codigo
+       
     

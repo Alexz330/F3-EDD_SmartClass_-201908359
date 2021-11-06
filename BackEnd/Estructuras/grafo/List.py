@@ -1,4 +1,4 @@
-from Node import Node
+from  Estructuras.grafo.Node import Node
 
 class List:
     def __init__(self):

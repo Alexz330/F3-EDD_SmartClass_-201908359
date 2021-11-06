@@ -8,21 +8,26 @@ import '../styles/Login.css';
 import logo from '../assets/logo.png'
 
 const Login = () => {
+
 	const form = useRef(null);
+
 	//contexto del estado 
-	const { addAccesUser, state,addInformatioUser } = useContext(AppContext)
+	const { addAccesUser, state,addInformatioUser, } = useContext(AppContext)
 	const history = useHistory();
 
 	const [uservalidated, setUserValidated] = useState(true)
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+
 		const formData = new FormData(form.current);
+
 		const data = {
 			carnet: formData.get('carnet'),
 			password: formData.get('password')
 		}
-		const res = await fetch(`http://localhost:8080/estudiante`, {
+
+		const res = await fetch(`http://localhost:5000/estudiante`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -32,7 +37,9 @@ const Login = () => {
 				"password": data.password
 			}),
 		});
+
 		const datasUser = await res.json();
+		
 		const { userValided } = datasUser;
 
 		if (userValided === true) {
@@ -52,6 +59,7 @@ const Login = () => {
 		<div className="Login">
 			<div className="Login-container">
 				<img src={logo} alt="logo" className="logo" />
+
 				<form action="/" className="form" ref={form}>
 					<label htmlFor="carnet" className="label">carnet</label>
 					<input type="text" name="carnet" placeholder="201900000" className="input input-email" />
@@ -63,9 +71,8 @@ const Login = () => {
 						className="primary-button login-button">
 						Log in
 					</button>
-
-
 				</form>
+
 				<button
 					className="secondary-button signup-button"
 				>

@@ -224,27 +224,27 @@ class HashTable:
 
 
 
-apuntesitos =  HashTable()
+# apuntesitos =  HashTable()
 
-a1 = apunte("tarea 1", "hacer tarea de matematicas")
-a2 = apunte("tarea 2", "hacer tarea de estructuras")
+# a1 = apunte("tarea 1", "hacer tarea de matematicas")
+# a2 = apunte("tarea 2", "hacer tarea de estructuras")
 
-apuntesitos.add(201908359,a2)
-apuntesitos.add(201908359,a2)
-apuntesitos.add(201908359,a2)
-apuntesitos.add(201908359,a2)
-apuntesitos.add(201909321,a1)
-apuntesitos.add(201909321,a2)
-apuntesitos.add(201909321,a2)
-apuntesitos.add(201909321,a2)
-apuntesitos.add(201905435,a2)
-apuntesitos.add(201905346,a2)
-apuntesitos.add(201906546,a2)
-apuntesitos.add(201903453,a1)
-apuntesitos.add(201905345,a1)
+# apuntesitos.add(201908359,a2)
+# apuntesitos.add(201908359,a2)
+# apuntesitos.add(201908359,a2)
+# apuntesitos.add(201908359,a2)
+# apuntesitos.add(201909321,a1)
+# apuntesitos.add(201909321,a2)
+# apuntesitos.add(201909321,a2)
+# apuntesitos.add(201909321,a2)
+# apuntesitos.add(201905435,a2)
+# apuntesitos.add(201905346,a2)
+# apuntesitos.add(201906546,a2)
+# apuntesitos.add(201903453,a1)
+# apuntesitos.add(201905345,a1)
 
 
-apuntesitos.graficar()
+# apuntesitos.graficar()
 
 
 

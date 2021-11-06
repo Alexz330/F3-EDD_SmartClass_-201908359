@@ -12,7 +12,7 @@ const ListaApuntes = () => {
 
 
 
-    const API = `http://localhost:8080/ObtenerApuntes`
+    const API = `http://localhost:5000/ObtenerApuntes`
 
     useEffect(() => {
         const obtenerApuntes = async () => {

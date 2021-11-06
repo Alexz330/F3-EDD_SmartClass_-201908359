@@ -21,15 +21,15 @@ const Apuntes = () => {
 
         }
 
-        const res = await fetch(`http://localhost:8080/apuntesAgregar`, {
+        const res = await fetch(`http://localhost:5000/apuntesAgregar`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
 				"carnet": data.carnet,
-				"title": data.title,
-                "content": data.content
+				"Título": data.title,
+                "Contenido": data.content
 			}),
 		});
 

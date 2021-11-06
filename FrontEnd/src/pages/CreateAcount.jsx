@@ -22,7 +22,7 @@ const CreateAcount = () => {
         }
 
 
-        const res = await fetch(`http://localhost:8080/agregarEstudiante`, {
+        const res = await fetch(`http://localhost:5000/agregarEstudiante`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

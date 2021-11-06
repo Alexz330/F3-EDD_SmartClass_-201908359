@@ -10,6 +10,7 @@ import useInialState from '../hooks/useInitialState';
 import Apuntes from '../pages/Apuntes';
 import ListaApuntes from '../pages/ListaApuntes';
 import Reportes from '../pages/Reportes';
+import Cursos from '../pages/Cursos';
 // estilos globales 
 import '../styles/global.css'
 
@@ -28,6 +29,7 @@ const App = () => {
 						<Route exact path="/apuntes-agregar" component={Apuntes} />
 						<Route exact path="/apuntes-ver" component={ListaApuntes}/>
 						<Route exact path="/reportes" component={Reportes}/>
+						<Route extct path="/cursos" component ={Cursos}/>
 					
 					</Switch>
 				</Layout>
