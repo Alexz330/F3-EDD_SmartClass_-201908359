@@ -1,0 +1,14 @@
+digraph ArbolB{
+
+rankdir=TB;
+node[color="red",style="diagonals",fillcolor=yellow, shape=record];
+
+Nodo118[label="<f0> |<f1>118\nMatematica aplicada 1|<f2>  ",group=0];
+
+Nodo18[label="<f0> |<f1>18\nFilosofia de la ciencia|<f2> |<f3>111\nmate 2|<f4> |<f5>116\nMatematica aplicada 3|<f6>  ",group=0];
+
+Nodo233[label="<f0> |<f1>233\nmate 2|<f2> |<f3>722\nTeoria de sistemas 1|<f4> |<f5>772\nEstructura de datos|<f6>  ",group=0];
+
+Nodo118:f0->Nodo18
+Nodo118:f2->Nodo233
+}

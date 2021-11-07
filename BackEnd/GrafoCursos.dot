@@ -1,0 +1,216 @@
+digraph grafica{
+rankdir=LR;
+node [shape = record, style=filled, fillcolor=seashell2];
+ labelloc="t";
+label="Sebas HAY FEEE";
+nodoMateria0017 [label ="<C0>|Social Humanistica 1
+ 0017|<C1>"];
+nodoMateria0101 [label ="<C0>|Matematica Basica 1
+ 0101|<C1>"];
+nodoMateria0039 [label ="<C0>|Deportes 1
+ 0039|<C1>"];
+nodoMateria0348 [label ="<C0>|Quimica General 1
+ 0348|<C1>"];
+nodoMateria0006 [label ="<C0>|Idioma tecnico 1
+ 0006|<C1>"];
+nodoMateria0019 [label ="<C0>|Social Humanistica 2
+ 0019|<C1>"];
+nodoMateria0019  -> nodoMateria0017
+nodoMateria0103 [label ="<C0>|Matematica Basica 2
+ 0103|<C1>"];
+nodoMateria0103  -> nodoMateria0101
+nodoMateria0005 [label ="<C0>|Tecnicas de estudio y de investigacion
+ 0005|<C1>"];
+nodoMateria0147 [label ="<C0>|Fisica basica
+ 0147|<C1>"];
+nodoMateria0147  -> nodoMateria0101
+nodoMateria0008 [label ="<C0>|Idioma tecnico 2
+ 0008|<C1>"];
+nodoMateria0008  -> nodoMateria0006
+nodoMateria0795 [label ="<C0>|Logica de sistemas
+ 0795|<C1>"];
+nodoMateria0795  -> nodoMateria0103
+nodoMateria0960 [label ="<C0>|Matematica computo 1
+ 0960|<C1>"];
+nodoMateria0960  -> nodoMateria0103
+nodoMateria0770 [label ="<C0>|Introduccion a la programacion y computacion 1
+ 0770|<C1>"];
+nodoMateria0770  -> nodoMateria0103
+nodoMateria0107 [label ="<C0>|Matematica intermedia 1
+ 0107|<C1>"];
+nodoMateria0107  -> nodoMateria0103
+nodoMateria0150 [label ="<C0>|Fisica 1
+ 0150|<C1>"];
+nodoMateria0150  -> nodoMateria0103
+nodoMateria0150  -> nodoMateria0147
+nodoMateria0009 [label ="<C0>|Idioma tecnico 3
+ 0009|<C1>"];
+nodoMateria0009  -> nodoMateria0008
+nodoMateria0732 [label ="<C0>|Estadistica 1
+ 0732|<C1>"];
+nodoMateria0732  -> nodoMateria0107
+nodoMateria0732  -> nodoMateria0005
+nodoMateria0796 [label ="<C0>|Lenguajes formales y de programacion
+ 0796|<C1>"];
+nodoMateria0796  -> nodoMateria0770
+nodoMateria0796  -> nodoMateria0795
+nodoMateria0796  -> nodoMateria0960
+nodoMateria0962 [label ="<C0>|Matematica computo 2
+ 0962|<C1>"];
+nodoMateria0962  -> nodoMateria0770
+nodoMateria0962  -> nodoMateria0795
+nodoMateria0962  -> nodoMateria0960
+nodoMateria0771 [label ="<C0>|Introduccion a la programacion y computacion 2
+ 0771|<C1>"];
+nodoMateria0771  -> nodoMateria0107
+nodoMateria0771  -> nodoMateria0770
+nodoMateria0771  -> nodoMateria0795
+nodoMateria0771  -> nodoMateria0960
+nodoMateria0771  -> nodoMateria0773
+nodoMateria0112 [label ="<C0>|Matematica intermedia 2
+ 0112|<C1>"];
+nodoMateria0112  -> nodoMateria0107
+nodoMateria0114 [label ="<C0>|Matematica intermedia 3
+ 0114|<C1>"];
+nodoMateria0114  -> nodoMateria0107
+nodoMateria0152 [label ="<C0>|Fisica 2
+ 0152|<C1>"];
+nodoMateria0152  -> nodoMateria0107
+nodoMateria0152  -> nodoMateria0150
+nodoMateria0011 [label ="<C0>|Idioma tecnico 4
+ 0011|<C1>"];
+nodoMateria0011  -> nodoMateria0009
+nodoMateria2025 [label ="<C0>|Practica inicial
+ 2025|<C1>"];
+nodoMateria2025  -> nodoMateria0103
+nodoMateria2025  -> nodoMateria0770
+nodoMateria0736 [label ="<C0>|Analisis probabilistico
+ 0736|<C1>"];
+nodoMateria0736  -> nodoMateria0732
+nodoMateria0777 [label ="<C0>|Organizacion de lenguajes y compiladores 1
+ 0777|<C1>"];
+nodoMateria0777  -> nodoMateria0771
+nodoMateria0777  -> nodoMateria0796
+nodoMateria0777  -> nodoMateria0962
+nodoMateria0964 [label ="<C0>|Organizacion computacional
+ 0964|<C1>"];
+nodoMateria0964  -> nodoMateria0152
+nodoMateria0964  -> nodoMateria0771
+nodoMateria0964  -> nodoMateria0962
+nodoMateria0772 [label ="<C0>|Estructura de datos
+ 0772|<C1>"];
+nodoMateria0772  -> nodoMateria0771
+nodoMateria0772  -> nodoMateria0796
+nodoMateria0772  -> nodoMateria0962
+nodoMateria0018 [label ="<C0>|Filosofia de la ciencia
+ 0018|<C1>"];
+nodoMateria0018  -> nodoMateria0019
+nodoMateria0116 [label ="<C0>|Matematica aplicada 3
+ 0116|<C1>"];
+nodoMateria0116  -> nodoMateria0112
+nodoMateria0116  -> nodoMateria0114
+nodoMateria0118 [label ="<C0>|Matematica aplicada 1
+ 0118|<C1>"];
+nodoMateria0118  -> nodoMateria0112
+nodoMateria0118  -> nodoMateria0114
+nodoMateria0722 [label ="<C0>|Teoria de sistemas 1
+ 0722|<C1>"];
+nodoMateria0722  -> nodoMateria0732
+nodoMateria0722  -> nodoMateria0772
+nodoMateria0722  -> nodoMateria0116
+nodoMateria0722  -> nodoMateria0118
+nodoMateria0601 [label ="<C0>|Investigacion de operaciones 1
+ 0601|<C1>"];
+nodoMateria0601  -> nodoMateria0771
+nodoMateria0601  -> nodoMateria0732
+nodoMateria0014 [label ="<C0>|Economia
+ 0014|<C1>"];
+nodoMateria0014  -> nodoMateria0732
+nodoMateria0781 [label ="<C0>|Organizacion de lenguajes y compiladores 2
+ 0781|<C1>"];
+nodoMateria0781  -> nodoMateria0777
+nodoMateria0781  -> nodoMateria0772
+nodoMateria0778 [label ="<C0>|Arquitectura de computadores y ensambladores 1
+ 0778|<C1>"];
+nodoMateria0778  -> nodoMateria0796
+nodoMateria0778  -> nodoMateria0964
+nodoMateria0773 [label ="<C0>|Manejo e implementacion de archivos
+ 0773|<C1>"];
+nodoMateria0773  -> nodoMateria0772
+nodoMateria0773  -> nodoMateria0796
+nodoMateria0724 [label ="<C0>|Teoria de sistemas 2
+ 0724|<C1>"];
+nodoMateria0724  -> nodoMateria0722
+nodoMateria0724  -> nodoMateria0601
+nodoMateria0724  -> nodoMateria0736
+nodoMateria0603 [label ="<C0>|Investigacion de operaciones 2
+ 0603|<C1>"];
+nodoMateria0603  -> nodoMateria0601
+nodoMateria0281 [label ="<C0>|Sistemas operativos 1
+ 0281|<C1>"];
+nodoMateria0281  -> nodoMateria0781
+nodoMateria0281  -> nodoMateria0778
+nodoMateria0779 [label ="<C0>|Arquitectura de computadores y ensambladores 2
+ 0779|<C1>"];
+nodoMateria0779  -> nodoMateria0778
+nodoMateria0970 [label ="<C0>|Redes de computadoras 1
+ 0970|<C1>"];
+nodoMateria0970  -> nodoMateria0773
+nodoMateria0970  -> nodoMateria0778
+nodoMateria2036 [label ="<C0>|Practica intermedia
+ 2036|<C1>"];
+nodoMateria2036  -> nodoMateria0778
+nodoMateria2036  -> nodoMateria0777
+nodoMateria2036  -> nodoMateria0773
+nodoMateria2036  -> nodoMateria2025
+nodoMateria0285 [label ="<C0>|Sistemas operativos 2
+ 0285|<C1>"];
+nodoMateria0285  -> nodoMateria0281
+nodoMateria0975 [label ="<C0>|Redes de computadoras 2
+ 0975|<C1>"];
+nodoMateria0975  -> nodoMateria0970
+nodoMateria0775 [label ="<C0>|Sistemas de bases de datos 2
+ 0775|<C1>"];
+nodoMateria0775  -> nodoMateria0281
+nodoMateria0775  -> nodoMateria0774
+nodoMateria0283 [label ="<C0>|Analisis y diseño de sistemas 1
+ 0283|<C1>"];
+nodoMateria0283  -> nodoMateria0774
+nodoMateria0797 [label ="<C0>|Seminario de sistemas 1
+ 0797|<C1>"];
+nodoMateria0797  -> nodoMateria0724
+nodoMateria0729 [label ="<C0>|Modelacion y simulacion 1
+ 0729|<C1>"];
+nodoMateria0729  -> nodoMateria0724
+nodoMateria0729  -> nodoMateria0603
+nodoMateria0786 [label ="<C0>|Sistemas organizacionales y gerenciales 1
+ 0786|<C1>"];
+nodoMateria0786  -> nodoMateria0283
+nodoMateria0786  -> nodoMateria0722
+nodoMateria0972 [label ="<C0>|Sistemas organizacionales y gerenciales 1
+ 0972|<C1>"];
+nodoMateria0972  -> nodoMateria0781
+nodoMateria0972  -> nodoMateria0775
+nodoMateria0972  -> nodoMateria0724
+nodoMateria0785 [label ="<C0>|Analisis y diseño de sistemas 2
+ 0785|<C1>"];
+nodoMateria0785  -> nodoMateria0283
+nodoMateria0798 [label ="<C0>|Seminario de sistemas 2
+ 0798|<C1>"];
+nodoMateria0798  -> nodoMateria0797
+nodoMateria2009 [label ="<C0>|Practica final
+ 2009|<C1>"];
+nodoMateria2009  -> nodoMateria2036
+nodoMateria0787 [label ="<C0>|Sistemas organizacionales y gerenciales 2
+ 0787|<C1>"];
+nodoMateria0787  -> nodoMateria0786
+nodoMateria0720 [label ="<C0>|Modelacion y simulacion 2
+ 0720|<C1>"];
+nodoMateria0720  -> nodoMateria0729
+nodoMateria0780 [label ="<C0>|Software avanzado
+ 0780|<C1>"];
+nodoMateria0780  -> nodoMateria0785
+nodoMateria0799 [label ="<C0>|Seminario de investigacion
+ 0799|<C1>"];
+nodoMateria0799  -> nodoMateria0798
+}

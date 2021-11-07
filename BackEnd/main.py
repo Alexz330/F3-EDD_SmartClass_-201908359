@@ -242,8 +242,9 @@ def cargaCursosPorEstudiante():
                     añito= Años(año['Año'], listitaSemestre, None)
                     listaAñitos.AppendFinal(añito)
                 arbol.search(int(dato['Carnet']),arbol.root).age_list = listaAñitos
-
-                arbol.search(int(dato['Carnet']),arbol.root).age_list.semestres.ArbolCursos.graficar()
+                # estudiante_cursos = arbol.search(int(dato['Carnet']),arbol.root)
+                # print(estudiante_cursos)
+                # #arbol.search(int(dato['Carnet']),arbol.root).age_list.listaSemestres.ArbolCursos.graficar()
     return "Proceso terminado"
 
 
@@ -257,9 +258,24 @@ def agregarCurso():
     Curso_creditos = request.json['Creditos']
     Curso_Prerequisitos = request.json['Prerequisitos']
     Curso_Obligatorio = request.json['Obligatorio']
-    curso = Cursos(Curso_codigo.Curso_nombre,Curso_creditos,Curso_Prerequisitos,Curso_Obligatorio)
-    estudiante.age_list.listaSemestres.ArbolCursos.insertarDatos(curso)
-
+    curso = Cursos(int(Curso_codigo),Curso_nombre,Curso_creditos,Curso_Prerequisitos,Curso_Obligatorio)
+    
+    cartnet = request.json["carnet"]
+    año = request.json['año']
+    semestre = request.json['semestre']
+    if estudiante is not None:
+            temporal = arbol.search(cartnet,arbol.root).age_list.first
+            while temporal != None:
+                if año == temporal.año.años:
+                    temporal2 = temporal.año.listaSemestres.first
+                    while temporal2 != None:
+                        if semestre == temporal2.semestres.semestre:
+                            temporal2.semestres.ArbolCursos.insertarDatos(curso)
+                            temporal2.semestres.ArbolCursos.graficar()
+                            print("se agrego curso")
+                            return "Se agrego curso "
+                        temporal2 = temporal2.next
+                temporal = temporal.next
 #enpoints para generar reportes
 
 @app.route("/reporteEstudiantes",methods=["GET"])
@@ -274,13 +290,16 @@ def reporteEstudiantesCurso():
     cartnet = request.json["carnet"]
     año = request.json['año']
     semestre = request.json['semestre']
-    if arbol.search(cartnet,arbol.root) is not None:
-            temporal = arbol.search(cartnet,arbol.root).age_list.first
+    print(cartnet,año,semestre)
+    if arbol.search(int(cartnet),arbol.root) is not None:
+            
+            temporal = arbol.search(int(cartnet),arbol.root).age_list.first
             while temporal != None:
                 if año == temporal.año.años:
                     temporal2 = temporal.año.listaSemestres.first
                     while temporal2 != None:
                         if semestre == temporal2.semestres.semestre:
+                            print("hola")
                             temporal2.semestres.ArbolCursos.graficar()
                             return "si paso"
                         temporal2 = temporal2.next

@@ -1,0 +1,10 @@
+.Apuntes_text__cursos{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.input__curso{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}

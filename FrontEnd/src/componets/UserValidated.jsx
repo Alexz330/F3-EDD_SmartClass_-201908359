@@ -12,15 +12,15 @@ const UserValidated = ({ userInformation }) => {
 
                 <div className="User_informacion">
                     <div className="">
-                        <h1>Bienvenido</h1>
-                        <h2>{getNombre()}</h2>
+                        <h1 className="User_title__Bienvenida">Bienvenido</h1>
+                        <h2 className="User_nombre">{getNombre()}</h2>
                     </div>
 
                 </div>
 
                 <div className="User_bienvenida">
                     <div className="user__image__container">
-                        <img className="user__image" src="https://mocah.org/uploads/posts/324859-House-Abstract-Forest-Digital-Art-Landscape-Illustration-4K-iphone-wallpaper.jpg" alt="" />
+                        <img className="user__image" src="https://mocah.org/uploads/posts/104228-flat-forest-deer-4k-5k-iphone-wallpaper-abstract.jpg" alt="" />
                     </div>
                 </div>
 

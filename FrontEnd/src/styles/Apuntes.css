@@ -8,14 +8,14 @@
 .Apuntes_container{
     
     width: 80%;
-    height:700px;
+    height:auto;
     background-color: papayawhip;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .Apuntes_info{
-    height: 130px;
+    height: auto;
     background-color: whitesmoke;
     
        
@@ -39,6 +39,7 @@
 .Apuntes_text{
     display: flex;
     justify-content: center;
+    
 }
 
 textarea{

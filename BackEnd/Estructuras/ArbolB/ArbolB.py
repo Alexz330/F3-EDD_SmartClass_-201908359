@@ -1,7 +1,7 @@
 from Estructuras.ArbolB.PaginaB import paginaB
 
-
 import os
+
 
 
 
@@ -206,7 +206,8 @@ class arbolB:
         self.grafica+="\n}\n"
         f.write(self.grafica)
         f.close()
-        os.system('dot -Tpng reportes/ReportePensum.dot -o reportes/ReportePensum.png')
+        os.system('dot -Tpng reporte/Pensum.dot -o reportes/ReportePensum.png')
+  
 
     def graficar2(self, pagina):
         contador=0

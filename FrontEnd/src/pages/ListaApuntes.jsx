@@ -38,7 +38,7 @@ const ListaApuntes = () => {
     }, [API])
 
 
-    if (true) {
+    if (logueado) {
         return (
             <div className="Apuntes">
                 <div className="Apuntes_container">

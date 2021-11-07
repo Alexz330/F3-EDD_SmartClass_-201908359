@@ -44,3 +44,11 @@
     height: 100vh;
     width: 100%;
 }
+
+.User_title__Bienvenida{
+    font-size: 100px;
+}
+
+.User_nombre{
+    font-size: 50px;
+}

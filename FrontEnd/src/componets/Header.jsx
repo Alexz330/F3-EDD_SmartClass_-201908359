@@ -19,7 +19,7 @@ const Header = () => {
                 <ul className="nav__links">
 
                     <li><Link to="/apuntes-agregar">Apuntes </Link></li>
-                    <li><Link href="/">Tareas</Link></li>
+            
                     <li><Link to="/cursos">Red de Cursos</Link></li>
                     {
                         verifcationAdmin()?<li><Link to="/reportes">Reportes</Link></li>:""
